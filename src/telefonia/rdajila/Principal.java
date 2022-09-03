@@ -1,7 +1,12 @@
 package telefonia.rdajila;
 
-import telefonia.vehiculo.Coche;
-import telefonia.vehiculo.VehiculoTerrestre;
+import java.util.Date;
+
+import telefonia.mascota.Canario;
+import telefonia.mascota.Inventario;
+//import telefonia.vehiculo.Coche;
+//import telefonia.vehiculo.VehiculoTerrestre;
+import telefonia.mascota.Mascota;
 
 public class Principal {
 
@@ -110,19 +115,46 @@ public class Principal {
 		// FILES
 //		FileCustom fileC = new FileCustom("fileIn.data", "fileOut.data"); // Archivos en ubicacion raiz del proyecto
 //		fileC.readAndWriteFileByte();
-		Coche cocheOne = null;
-		VehiculoTerrestre vh = null;
+		
+		// VEHICULO
+//		Coche cocheOne = null;
+//		VehiculoTerrestre vh = null;
+//		try {
+//			cocheOne = new Coche("2666DFR", "Nissan", 4, true);
+//			vh = new VehiculoTerrestre("2666DFR", "Nissan", 4);
+//			System.out.println(cocheOne.imprimir());
+//			System.out.println(vh.imprimir());
+//			
+//			vh = (VehiculoTerrestre)cocheOne;
+//			System.out.println(vh.imprimir());
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			System.err.println(e.getMessage());
+//		}
+		
+		// INVENTARIO
+		Inventario _inv = new Inventario();
+		_inv.mostrarAnimales();
+		
 		try {
-			cocheOne = new Coche("2666DFR", "Nissan", 4, true);
-			vh = new VehiculoTerrestre("2666DFR", "Nissan", 4);
-			System.out.println(cocheOne.imprimir());
-			System.out.println(vh.imprimir());
-			
-			vh = (VehiculoTerrestre)cocheOne;
-			System.out.println(vh.imprimir());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			Mascota _m = _inv.getMascotaByIndex(1);
+			System.out.println();
+			_inv.mostrarAnimal(_m);
+		} catch(IndexOutOfBoundsException e) {
 			System.err.println(e.getMessage());
 		}
+		Canario _c = new Canario("Piolin", 1, true, new Date(), "Corto", true, "Amarillo", true);
+		
+		_inv.insertarAnimal( _c );
+		System.out.println();
+		_inv.mostrarInfoAnimales();
+		
+		_inv.eliminarAnimal(_c);
+		System.out.println();
+		_inv.mostrarInfoAnimales();
+		
+		_inv.vaciar();
+		System.out.println();
+		_inv.mostrarInfoAnimales();
 	}
 }
