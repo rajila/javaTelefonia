@@ -2,6 +2,8 @@ package telefonia.rdajila;
 
 import java.util.Date;
 
+import telefonia.empresa.Empleado;
+import telefonia.empresa.Empresa;
 import telefonia.mascota.Canario;
 import telefonia.mascota.Inventario;
 //import telefonia.vehiculo.Coche;
@@ -156,5 +158,32 @@ public class Principal {
 		_inv.vaciar();
 		System.out.println();
 		_inv.mostrarInfoAnimales();
+		
+		System.out.println("\n\n");
+		Empleado _e1 = new Empleado("Ronald", "Y5724967M", 9000);
+		Empleado _e2 = new Empleado("Esperanza", "X6612556X", 15000);
+		Empleado _e3 = new Empleado("Daniel", "Y5724967M", 55000);
+		Empleado _e4 = new Empleado("David", "M4724267X", 12000);
+		
+		Empresa _emp = new Empresa("ESPOL", "0943439847", "682350457", "Guayaquil, Avenida Permitral");
+		_emp.addEmpleado(_e1); // Add empleado
+		_emp.addEmpleado(_e2); // Add empleado
+		
+		_emp.mostrarAllEmpleados();
+		
+		_emp.addEmpleado(_e3); // Add empleado con DNI Duplicado
+		_emp.addEmpleado(_e4); // Add empleado
+		
+		_emp.mostrarAllEmpleados();
+		
+		Empleado _e5 = new Empleado("Esperanza", "X6612556X", 19000);
+		_emp.deleteEmpleado(_e5); // Delete empleado
+		
+		_emp.mostrarAllEmpleados();
+		
+		_emp.addEmpleado(_e2); // Add empleado
+		_emp.mostrarAllEmpleados();
+		System.out.printf("\nSueldo bruto total: %f", _emp.getSueldoBrutoAll());
+		System.out.printf("\nSueldo neto total: %f", _emp.getSueldoNetoAll());
 	}
 }
