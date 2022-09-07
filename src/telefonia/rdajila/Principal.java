@@ -4,6 +4,10 @@ import java.util.Date;
 
 import telefonia.empresa.Empleado;
 import telefonia.empresa.Empresa;
+import telefonia.figura.Circulo;
+import telefonia.figura.Cuadrado;
+import telefonia.figura.Rectangulo;
+import telefonia.figura.Triangulo;
 import telefonia.mascota.Canario;
 import telefonia.mascota.Inventario;
 //import telefonia.vehiculo.Coche;
@@ -185,5 +189,15 @@ public class Principal {
 		_emp.mostrarAllEmpleados();
 		System.out.printf("\nSueldo bruto total: %f", _emp.getSueldoBrutoAll());
 		System.out.printf("\nSueldo neto total: %f", _emp.getSueldoNetoAll());
+		
+		System.out.println("\n\n");
+		Cuadrado _c1 = new Cuadrado(5);
+		_c1.imprimir();
+		Rectangulo _r1 = new Rectangulo(4, 7);
+		_r1.imprimir();
+		Triangulo _t1 = new Triangulo(4, 7);
+		_t1.imprimir();
+		Circulo _cr1 = new Circulo(3.5);
+		_cr1.imprimir();
 	}
 }
